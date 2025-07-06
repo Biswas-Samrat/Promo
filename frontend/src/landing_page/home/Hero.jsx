@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Style.css";
+import "/public/Style.css";
 
 function Hero() {
   const videoRef = useRef(null); 
