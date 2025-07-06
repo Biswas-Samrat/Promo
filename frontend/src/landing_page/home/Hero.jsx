@@ -82,7 +82,7 @@ function Hero() {
       <div className="inner-div">
         <video
           ref={videoRef}
-          src="/video/1.mp4"
+          src="/Video/1.mp4"
           autoPlay
           muted
           loop
