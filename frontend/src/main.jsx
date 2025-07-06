@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./landing_Page/Home/HomePage";
+import HomePage from "./landing_Page/home/HomePage";
 import Abaout from "./landing_Page/abaout/abaoutPage";
 import Contact from "./landing_Page/contact/contactPage";
 import Features from "./landing_Page/features/featurePage";
