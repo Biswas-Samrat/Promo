@@ -1,0 +1,33 @@
+.Photo_filr_cntainer {
+    height: 50rem;
+    width: 100%;
+    background-color: blue;
+
+}
+
+
+.Photo_1 {
+    background-image: url("../../../public/img/i (4).jpg");
+    background-size: cover;
+}
+
+.Photo_2 {
+    background-image: url("../../../public/img/i (3).jpg");
+    background-size: cover;
+}
+
+.Photo_3 {
+    background-image: url("../../../public/img/i (2).jpg");
+    background-size: cover;
+}
+
+.Photo_4 {
+    background-image: url("../../../public/img/i (1).jpg");
+    background-size: cover;
+}
+
+.text-center-photo{
+    color: white;
+    font-size: 4rem;
+}
+

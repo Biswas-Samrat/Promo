@@ -1,0 +1,50 @@
+.hero-image {
+    height: 40rem;
+    background-image: url("../../../public/img/f.jpg");
+
+}
+
+.hero-2 {
+    height: 20rem;
+    background-color:rgb(85, 9, 217);
+}
+
+.header {
+    color: white;
+    text-align: center;
+    margin-top: 8%;
+}
+
+.subheading {
+    color: white;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.photo{
+    height: 20rem;
+    width: 25rem;
+    background-image: url("../../../public/img/sa.jpg");
+    background-size: cover;
+}
+
+.photo2{
+    height: 20rem;
+    width: 25rem;
+    background-image: url("../../../public/img/dd.png");
+    background-size: cover;
+}
+.photo3{
+    height: 20rem;
+    width: 25rem;
+    background-image: url("../../../public/img/fe (1).jpg");
+    background-size: cover;
+    margin-bottom: 5rem;
+}
+.photo4{
+    height: 20rem;
+    width: 25rem;
+    background-image: url("../../../public/img/sad.png");
+    background-size: cover;
+    margin-bottom: 5rem;
+}

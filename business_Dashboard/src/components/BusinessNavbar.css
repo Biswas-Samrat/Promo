@@ -1,0 +1,96 @@
+/* Custom CSS for BusinessNavbar */
+
+.navbar-nav.mx-auto {
+  /* This centers the nav items for larger screens */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  /* You might want to add some padding/gap between items for aesthetics */
+  gap: 15px; /* Adjust as needed */
+}
+
+/* This was in your original, keep if desired */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.75); /* Ensure default link color */
+  padding: 0.5rem 1rem; /* Add padding for better click area */
+}
+
+.nav-link.active {
+  color: #fff !important;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+.nav-link:hover {
+  color: #ffffff !important;
+}
+
+
+/* New styles for alignment and profile picture */
+
+/* Push the right nav items to the far right */
+.navbar-nav.ms-auto {
+  margin-left: auto !important;
+  /* Adjust this if you want more space between the logout button and the edge */
+  margin-right: 5rem; /* Matches your original inline style for right-aligned div */
+}
+
+/* Style for the profile image in the navbar */
+.profile-navbar-img {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border-radius: 50%; /* Makes it a circle */
+  border: 2px solid white; /* Optional: adds a border to the profile pic */
+  transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.profile-info:hover .profile-navbar-img {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.profile-info span {
+  font-weight: 500; /* Make name a bit bolder */
+}
+
+/* Adjustments for the navbar brand for consistent left alignment */
+.navbar-brand {
+    margin-right: unset !important; /* Remove me-auto default from original */
+}
+
+/* Small adjustments for responsiveness on smaller screens */
+@media (max-width: 991.98px) {
+  .navbar-brand {
+    margin-left: 1rem !important; /* Adjust brand margin for small screens */
+  }
+
+  .navbar-nav.mx-auto,
+  .navbar-nav.ms-auto {
+    margin-left: 0 !important; /* Remove auto margins on collapse */
+    margin-right: 0 !important; /* Remove auto margins on collapse */
+    width: 100%; /* Take full width */
+    text-align: center; /* Center items in collapsed view */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 5px 0; /* Add vertical spacing for collapsed items */
+  }
+
+  .profile-info {
+    justify-content: center; /* Center profile info in collapsed view */
+    margin-bottom: 10px; /* Space below profile info */
+  }
+
+  .profile-info .text-white.d-none.d-md-block {
+    display: block !important; /* Show name even on small screens when collapsed */
+  }
+}

@@ -1,0 +1,117 @@
+.outer-div {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative; 
+
+}
+
+.inner-div {
+  width: 100%;
+  height: 100%;
+  position: relative; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+}
+
+.inner-div video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  position: absolute; 
+  left: 0;
+  z-index: 0; 
+}
+
+.text-overlay {
+  position: relative; 
+  z-index: 1; 
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  max-width: 80%;
+  box-sizing: border-box; 
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+
+.fade-in-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-out-text {
+  opacity: 0;
+  transform: translateY(-20px); 
+}
+
+.hero-heading{
+  font-size: clamp(2em, 5vw, 4em); 
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-family: "Libre Bodoni";
+}
+
+.hero-subheading {
+  font-size: clamp(1em, 2.5vw, 2em); 
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  font-family: "Poiret One";
+}
+
+.cta-button {
+  position: absolute; 
+  bottom: 15vh; 
+  z-index: 2; 
+  padding: 15px 30px;
+  font-size: clamp(1em, 2vw, 1.2em); 
+  background-color: rgb(255, 66, 48);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+ 
+}
+
+.cta-button:hover {
+  background-color: rgb(255, 0, 0);
+  transform: translateY(-3px); 
+}
+
+
+@media (max-width: 768px) {
+  .text-overlay {
+    padding: 15px 25px;
+  }
+  .cta-button {
+    padding: 12px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-overlay {
+    padding: 10px 20px;
+  }
+  .cta-button {
+    padding: 10px 20px;
+    bottom: 3vh; 
+  }
+}
+
+/* content.jsx */
+
+.contant-outerdiv{
+  width: 100%;
+  height: 70vh;
+  background-color:rgb(0, 0, 235);
+}
+
+.content-headrt{
+font-size: 5rem;
+
+}

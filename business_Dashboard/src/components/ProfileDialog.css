@@ -1,0 +1,170 @@
+
+.profile-dialog-overlay {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  z-index: 1050; 
+  backdrop-filter: blur(3px); 
+}
+
+.profile-dialog-content {
+  background-color: #fff; /* White background for the dialog box */
+  padding: 2.5rem; /* Ample padding inside the box */
+  border-radius: 12px; /* Slightly more rounded corners */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+  position: relative; /* Needed for positioning the close button */
+  max-width: 550px; /* Maximum width of the dialog */
+  width: 90%; /* Take 90% of screen width on smaller screens */
+  text-align: center; /* Center text content */
+  color: #333; /* Darker text for readability */
+  animation: fadeInScale 0.3s ease-out forwards; /* Apply animation */
+
+  /* --- SCROLLABLE PROPERTIES --- */
+  max-height: 80vh; /* Set a maximum height (e.g., 80% of viewport height) */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  -webkit-overflow-scrolling: touch; /* Improves scrolling on iOS devices */
+  /* --- END SCROLLABLE PROPERTIES --- */
+
+  /* Optional: Add some custom scrollbar styling for webkit browsers */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Close button styles */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none; /* No background */
+  border: none; /* No border */
+  font-size: 2rem; /* Larger font size for the 'X' */
+  cursor: pointer; /* Pointer cursor on hover */
+  color: #aaa; /* Light gray color */
+  transition: color 0.2s ease; /* Smooth transition on hover */
+}
+
+.close-button:hover {
+  color: #555; /* Darker on hover */
+}
+
+/* Header styles */
+.profile-dialog-content h2 {
+  color: #007bff; /* Primary blue for the heading */
+  margin-bottom: 25px; /* Space below the heading */
+  font-size: 2rem; /* Larger heading */
+}
+
+/* Profile picture within the dialog */
+.profile-dialog-picture {
+  width: 160px; /* Larger profile picture */
+  height: 160px;
+  border-radius: 50%; /* Make it circular */
+  object-fit: cover; /* Ensure image covers the area */
+  margin-bottom: 25px; /* Space below the picture */
+  border: 5px solid #007bff; /* Primary blue border around the picture */
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); /* Subtle glow effect */
+}
+
+
+.profile-details p {
+  margin: 10px 0; 
+  font-size: 1.15rem; 
+  line-height: 1.5; 
+  color: #555;
+}
+
+.profile-details strong {
+  color: #0056b3; 
+  margin-right: 5px; 
+}
+
+.social-media-links {
+  margin-top: 20px;
+  text-align: left; 
+  padding-left: 20px; 
+}
+
+.social-media-links ul {
+  list-style: none; 
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.social-media-links li {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.social-media-links a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.social-media-links a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 600px) {
+  .profile-dialog-content {
+    padding: 1.5rem;
+    margin: 1rem; 
+    max-height: 90vh; 
+  }
+
+  .profile-dialog-picture {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-dialog-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .profile-details p {
+    font-size: 1rem;
+    margin: 8px 0;
+  }
+
+  .close-button {
+    font-size: 1.5rem;
+    top: 10px;
+    right: 10px;
+  }
+}

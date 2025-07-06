@@ -1,0 +1,153 @@
+/* .nav-link {
+    padding: 0.5rem 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+
+
+ */
+
+
+
+/* Existing styles */
+.nav-link {
+    padding: 0.5rem 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+/* Specific class for navbar items margin - removed if you were using for centering,
+   Bootstrap's mx-auto and ms-auto handle it better now */
+/* .navbar-nav .nav-item {
+    margin: 0 10px;
+} */
+
+
+/* Bootstrap media query for toggler */
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+/* Custom styles for desired layout */
+
+/* Center the middle nav items for large screens */
+.navbar-nav.mx-auto {
+    /* override Bootstrap's default alignment for this specific ul */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /* You might want to add some padding/gap between items for aesthetics */
+    gap: 15px; /* Adjust as needed */
+}
+
+/* Push the right nav items to the far right */
+.navbar-nav.ms-auto {
+    /* override Bootstrap's default alignment for this specific ul */
+    margin-left: auto !important;
+}
+
+/* Style for the profile image in the navbar */
+.profile-navbar-img {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border-radius: 50%; /* Makes it a circle */
+  border: 2px solid white; /* Optional: adds a border to the profile pic */
+  transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.profile-info:hover .profile-navbar-img {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.profile-info span {
+  font-weight: 500; /* Make name a bit bolder */
+}
+
+/* Small adjustments for responsiveness on smaller screens */
+@media (max-width: 991.98px) {
+  .navbar-brand {
+    margin-left: 1rem !important; /* Adjust brand margin for small screens */
+  }
+
+  .navbar-nav.mx-auto,
+  .navbar-nav.ms-auto {
+    margin: 0 !important; /* Remove auto margins on collapse */
+    width: 100%; /* Take full width */
+    text-align: center; /* Center items in collapsed view */
+  }
+
+  .navbar-nav.mx-auto .nav-item,
+  .navbar-nav.ms-auto .nav-item {
+    margin: 5px 0; /* Add vertical spacing for collapsed items */
+  }
+
+  .profile-info {
+    justify-content: center; /* Center profile info in collapsed view */
+    margin-bottom: 10px; /* Space below profile info */
+  }
+}
+
+
+
+
+
+/* 
+.nav-link {
+    padding: 0.5rem 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+
+
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+
+.navbar-nav.mx-auto {
+ 
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.navbar-nav.ms-auto {
+    
+    margin-left: auto !important;
+}
+
+.profile-info img {
+  border: 2px solid white; 
+} */
