@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "/public/Style.css";
+import "./Style.css";
 
 function Hero() {
   const videoRef = useRef(null); 
@@ -82,7 +82,7 @@ function Hero() {
       <div className="inner-div">
         <video
           ref={videoRef}
-          src="/public/video/1.mp4" 
+          src="/video/1.mp4"
           autoPlay
           muted
           loop
