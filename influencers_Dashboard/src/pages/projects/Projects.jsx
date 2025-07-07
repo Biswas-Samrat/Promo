@@ -38,7 +38,7 @@ function ProjectsPage() {
       };
       
       // THIS IS WHERE THE FILTERING HAPPENS ON THE BACKEND
-      const response = await axios.get('http://localhost:5000/api/projects', config); 
+      const response = await axios.get('https://promo-ke7k.onrender.com/api/projects', config); 
       console.log("[ProjectsPage] Response data received:", response.data);
       setProjects(response.data); // This will only contain 'accepted' projects from the backend
 
@@ -104,7 +104,7 @@ function ProjectsPage() {
         }
       };
 
-      const response = await axios.put(`http://localhost:5000/api/proposals/${projectId}/status`, { status: newStatus }, config);
+      const response = await axios.put(`https://promo-ke7k.onrender.com/api/proposals/${projectId}/status`, { status: newStatus }, config);
       
       // THIS LINE REMOVES THE PROJECT FROM THE UI IMMEDIATELY AFTER COMPLETION
       setProjects(prevProjects => prevProjects.filter(p => p._id !== projectId)); 
