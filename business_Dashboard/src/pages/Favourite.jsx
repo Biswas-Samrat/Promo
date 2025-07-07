@@ -111,7 +111,7 @@ function Favourite() {
   const fetchFavorites = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/favorites",
+        "https://promo-ke7k.onrender.com/api/favorites",
         getAuthHeaders()
       );
       setFavorites(res.data.favorites || []);
@@ -127,7 +127,7 @@ function Favourite() {
     const fetchUserConnections = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/me",
+          "https://promo-ke7k.onrender.com/api/me",
           getAuthHeaders()
         );
         setConnections(res.data.connections || []);
@@ -149,7 +149,7 @@ function Favourite() {
   const handleUnfavorite = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/favorite/${id}`,
+        `https://promo-ke7k.onrender.com/api/favorite/${id}`,
         getAuthHeaders()
       );
       setFavorites((prev) => prev.filter((inf) => inf._id !== id));
@@ -183,7 +183,7 @@ function Favourite() {
   const sendProposalToBackend = async (influencerId, proposalFormData) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/proposals",
+        "https://promo-ke7k.onrender.com/api/proposals",
         {
           receiver: influencerId,
           campaignName: proposalFormData.campaignName,
@@ -205,7 +205,7 @@ function Favourite() {
   const handleConnect = async (id) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/connect",
+        "https://promo-ke7k.onrender.com/api/connect",
         { influencerId: id },
         getAuthHeaders()
       );
