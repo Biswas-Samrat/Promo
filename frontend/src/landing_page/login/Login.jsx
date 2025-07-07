@@ -36,7 +36,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/login", // Backend login URL
+        "https://promo-ke7k.onrender.com/api/users/login", // Backend login URL
         formData // Send email and password
       );
 
@@ -53,10 +53,10 @@ function Login() {
       setTimeout(() => {
         if (response.data.user.role === "business") {
            const token = response.data.token;
-             window.location.href = `http://localhost:5174/dashboard?token=${token}`
+             window.location.href = `https://promo-2-ocwm.onrender.com/dashboard?token=${token}`
         } else {
            const token = response.data.token;
-          window.location.href = `http://localhost:5175/Proposals?token=${token}`;
+          window.location.href = `https://promo-3.onrender.com/Proposals?token=${token}`;
         }
       }, 1500); // Give user time to see success message
 
