@@ -112,7 +112,7 @@ const MessageBubble = styled(Box)(({ theme, isSender }) => ({
 }));
 
 // Initialize socket with reconnection options
-const socket = io("http://localhost:5000", {
+const socket = io("https://promo-ke7k.onrender.com", {
   reconnection: true,
   reconnectionAttempts: 5,
   reconnectionDelay: 1000,
@@ -165,7 +165,7 @@ const Messages = () => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/me", {
+        const res = await axios.get("https://promo-ke7k.onrender.com/api/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -405,7 +405,7 @@ const Messages = () => {
       if (!user || !contact) return;
 
       const token = localStorage.getItem("token");
-      const res = await axios.get(`http://localhost:5000/api/messages/${contact._id}`, {
+      const res = await axios.get(`https://promo-ke7k.onrender.com/api/messages/${contact._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -476,7 +476,7 @@ const Messages = () => {
 
         const token = localStorage.getItem("token");
         await axios.post(
-          "http://localhost:5000/api/chat/upload-image",
+          "https://promo-ke7k.onrender.com/api/chat/upload-image",
           formData,
           {
             headers: {
