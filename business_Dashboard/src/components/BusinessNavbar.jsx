@@ -29,7 +29,7 @@ const BusinessNavbar = () => {
       }
 
       // IMPORTANT: Adjust the URL if your backend is on a different port/domain
-      const response = await fetch("http://localhost:5000/api/user/profile", {
+      const response = await fetch("https://promo-ke7k.onrender.com/api/user/profile", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const BusinessNavbar = () => {
         if (response.status === 401 || response.status === 403) {
           console.error("Token expired or invalid. Redirecting to login.");
           localStorage.removeItem("token"); // Clear invalid token
-          window.location.href = "http://localhost:5175/"; // Redirect to your business login page
+          window.location.href = "https://promo-1-v4b5.onrender.com"; // Redirect to your business login page
           return;
         }
         const errorData = await response.json();
