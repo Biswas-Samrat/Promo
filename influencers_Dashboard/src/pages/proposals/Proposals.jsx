@@ -32,7 +32,7 @@ function Proposals() {
         }
       };
       // This endpoint now explicitly returns ONLY PENDING proposals
-      const response = await axios.get('http://localhost:5000/api/proposals/received', config);
+      const response = await axios.get('https://promo-ke7k.onrender.com/api/proposals/received', config);
       setProposals(response.data);
     } catch (err) {
       console.error("Error fetching proposals:", err);
@@ -67,7 +67,7 @@ function Proposals() {
       // 1. Show an initial "Accepting..." toast that won't auto-close
       loadingToastId = toast.info("Proposal Accepted", { autoClose: true, closeButton: true });
 
-      const response = await axios.put(`http://localhost:5000/api/proposals/${proposalId}/status`, { status: newStatus }, config);
+      const response = await axios.put(`https://promo-ke7k.onrender.com/api/proposals/${proposalId}/status`, { status: newStatus }, config);
 
       // If successful, remove the accepted proposal from the current list (frontend state)
       setProposals(prevProposals =>
@@ -114,7 +114,7 @@ function Proposals() {
     try {
       loadingToastId = toast.info("Marking proposal as completed...", { autoClose: false, closeButton: false });
 
-      const response = await axios.put(`http://localhost:5000/api/proposals/${proposalId}/status`, { status: newStatus }, config);
+      const response = await axios.put(`https://promo-ke7k.onrender.com/api/proposals/${proposalId}/status`, { status: newStatus }, config);
 
       setProposals(prevProposals =>
         prevProposals.filter(p => p._id !== proposalId)
