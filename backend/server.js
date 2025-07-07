@@ -106,7 +106,7 @@ const requireAuth = async (req, res, next) => {
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ["http://localhost:5174", "http://localhost:5175"],
+        origin: ["https://promo-2-ocwm.onrender.com", "https://promo-3.onrender.com"],
         methods: ["GET", "POST"],
         credentials: true
     },
