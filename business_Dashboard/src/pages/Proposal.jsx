@@ -109,7 +109,7 @@ function Proposal() {
     setError(""); // Clear previous errors
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/proposals/sent",
+        "https://promo-ke7k.onrender.com/api/proposals/sent",
         getAuthHeaders()
       );
       setProposals(res.data.proposals || []);
