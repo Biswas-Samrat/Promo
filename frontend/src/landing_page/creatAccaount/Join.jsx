@@ -146,7 +146,7 @@ function Join() {
     try {
       
       const response = await axios.post(
-        "http://localhost:5000/api/users/register", // Backend signup URL
+        "https://promo-ke7k.onrender.com/api/users/register", // Backend signup URL
         data,
         {
           headers: { "Content-Type": "multipart/form-data" }, // Important for file uploads
@@ -168,11 +168,11 @@ function Join() {
         if (response.data.user.role === "business") {
          
              const token = response.data.token;
-           window.location.href = `http://localhost:5174/dashboard?token=${token}`;
+           window.location.href = `https://promo-2-ocwm.onrender.com/dashboard?token=${token}`;
             
         } else {
          const token = response.data.token;
-          window.location.href = `http://localhost:5175/Proposals?token=${token}`;
+          window.location.href = `https://promo-3.onrender.com/Proposals?token=${token}`;
         }
       }, 1500); 
 
