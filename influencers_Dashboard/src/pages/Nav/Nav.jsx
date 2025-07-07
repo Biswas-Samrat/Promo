@@ -123,7 +123,7 @@ function Navbar() {
         return;
       }
 
-      const response = await fetch("http://localhost:5000/api/user/profile", { // Adjust URL if your backend is on a different port/domain
+      const response = await fetch("https://promo-ke7k.onrender.com/api/user/profile", { // Adjust URL if your backend is on a different port/domain
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -135,7 +135,7 @@ function Navbar() {
         if (response.status === 401 || response.status === 403) {
             // Token expired or invalid
             localStorage.removeItem("token"); // Clear invalid token
-            window.location.href = "http://localhost:5173/"; // Redirect to login
+            window.location.href = "https://promo-1-v4b5.onrender.com"; // Redirect to login
             return;
         }
         const errorData = await response.json();
@@ -158,7 +158,7 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.href = "http://localhost:5173/"; // Redirect to your login/home page
+    window.location.href = "https://promo-1-v4b5.onrender.com"; // Redirect to your login/home page
   };
 
   const toggleProfileDialog = () => {
