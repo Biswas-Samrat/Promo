@@ -36,7 +36,7 @@ function HistoryPage() {
       };
       console.log("[HistoryPage] Sending request to /api/history...");
       // This endpoint specifically fetches projects with status 'completed'
-      const response = await axios.get('http://localhost:5000/api/history', config);
+      const response = await axios.get('https://promo-ke7k.onrender.com/api/history', config);
       console.log("[HistoryPage] Response data received:", response.data);
       setHistoryProjects(response.data);
       
