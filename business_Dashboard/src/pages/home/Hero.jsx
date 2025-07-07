@@ -73,7 +73,7 @@ function Home() {
     const fetchFavoritesAndConnections = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/me",
+          "https://promo-ke7k.onrender.com/api/me",
           getAuthHeaders()
         );
         setCurrentUserFavorites(res.data.favorites || []);
@@ -144,7 +144,7 @@ function Home() {
     setIsLoading(true);
     setError(null);
     try {
-      const res = await axios.post("http://localhost:5000/influencers", {
+      const res = await axios.post("https://promo-ke7k.onrender.com/influencers", {
         selectedPlatforms: selectedIcons,
         selectedNiches,
       });
@@ -173,7 +173,7 @@ function Home() {
   const toggleFavorite = async (id) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/favorite",
+        "https://promo-ke7k.onrender.com/api/favorite",
         { influencerId: id },
         getAuthHeaders()
       );
@@ -211,7 +211,7 @@ function Home() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/connect",
+        "https://promo-ke7k.onrender.com/api/connect",
         { influencerId: id },
         getAuthHeaders()
       );
@@ -244,7 +244,7 @@ function Home() {
   const sendProposalToBackend = async (influencerId, proposalFormData) => {
     try {
       await axios.post(
-        "http://localhost:5000/api/proposals",
+        "https://promo-ke7k.onrender.com/api/proposals",
         {
           receiver: influencerId,
           campaignName: proposalFormData.campaignName,
