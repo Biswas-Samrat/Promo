@@ -165,7 +165,7 @@ function Join() {
       setTimeout(() => {
         if (response.data.user.role === "business") {
           // Use navigate directly, no token in URL
-          navigate("/dashboard");
+          navigate("https://promo-2-ocwm.onrender.com/dashboard");
         } else {
           // Use navigate directly, no token in URL
           navigate("/Proposals");
@@ -384,4 +384,5 @@ function Join() {
 }
 
 export default Join;
+
 
