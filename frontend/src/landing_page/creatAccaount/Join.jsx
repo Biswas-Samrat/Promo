@@ -145,7 +145,7 @@ function Join() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/register", // Backend signup URL
+        "https://promo-ke7k.onrender.com/api/users/register", // Backend signup URL
         data,
         {
           headers: { "Content-Type": "multipart/form-data" }, // Important for file uploads
@@ -384,3 +384,4 @@ function Join() {
 }
 
 export default Join;
+
