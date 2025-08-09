@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Removed useLocation, useEffect
 
 import BusinessNavbar from "./components/BusinessNavbar";
 import Home from "./pages/home/Home_Page";
@@ -11,55 +11,24 @@ import Favourite from "./pages/Favourite";
 import Proposals from "./pages/Proposal";
 import PrivateRoute from "./components/PrivateRoute";
 
-// TokenHandler component: Now also sets the 'isFirstVisitAfterAuth' flag
-function TokenHandler({ children }) {
-  const location = useLocation();
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const token = params.get("token");
-
-    if (token) {
-      localStorage.setItem("token", token);
-      // Set the flag here, as this is where the token is first recognized after auth
-      localStorage.setItem("isFirstVisitAfterAuth", "true"); 
-      window.history.replaceState({}, "", location.pathname);
-    }
-  }, [location]);
-
-  return children;
-}
-
-// GlobalRefreshHandler component: Triggers full page reload once after auth
-function GlobalRefreshHandler({ children }) {
-  const location = useLocation(); // Keep useLocation for dependency, though reload will reset everything
-
-  useEffect(() => {
-    const isFirstVisit = localStorage.getItem('isFirstVisitAfterAuth');
-
-    if (isFirstVisit === 'true') {
-      console.log("First visit after authentication detected. Initiating full page refresh...");
-      localStorage.removeItem('isFirstVisitAfterAuth'); // Remove the flag immediately
-      
-      // Use a small delay to ensure localStorage update is committed before reload
-      setTimeout(() => {
-        window.location.reload(); // Perform a full page reload
-      }, 100); // A very short delay, e.g., 100ms
-    }
-  }, [location]); // Re-run if location changes, although reload bypasses subsequent checks
-
-  return children;
-}
-
-
 // Your protected routes
 function AppRoutes() {
   return (
     <Routes>
+      {/*
+        The wildcard path "/*" will catch any path that hasn't been matched
+        by a more specific route. It's often used with nested routes.
+        Ensure your PrivateRoute correctly handles authentication status.
+      */}
       <Route
         path="/*"
         element={
           <PrivateRoute>
+            {/*
+              Render BusinessNavbar and nested Routes only if the user is authenticated.
+              This setup ensures that BusinessNavbar is always present on protected pages
+              and the sub-routes handle the specific page content.
+            */}
             <>
               <BusinessNavbar />
               <Routes>
@@ -70,6 +39,10 @@ function AppRoutes() {
                 <Route path="/history" element={<History />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/Favourite" element={<Favourite />} />
+                {/*
+                  Fallback route: If no other path matches within the PrivateRoute,
+                  it will default to Home.
+                */}
                 <Route path="*" element={<Home />} />
               </Routes>
             </>
@@ -85,12 +58,12 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-light">
-        <TokenHandler>
-          {/* Wrap AppRoutes with GlobalRefreshHandler to enable the functionality */}
-          <GlobalRefreshHandler>
-            <AppRoutes />
-          </GlobalRefreshHandler>
-        </TokenHandler>
+        {/*
+          No need for TokenHandler or GlobalRefreshHandler as the token
+          is now handled correctly during registration/login in Join.jsx
+          and should not appear in the URL.
+        */}
+        <AppRoutes />
       </div>
     </Router>
   );
