@@ -43,10 +43,32 @@ cloudinary.config({
 
 // Middleware Setup
 // Middleware Setup
-app.use(cors({
-    origin: ["https://promo-1-v4b5.onrender.com", "https://promo-2-ocwm.onrender.com", "https://promo-3.onrender.com"], 
-    credentials: true
-}));
+ const allowedOrigins = [
+      'https://promo-1-v4b5.onrender.com', 
+      'https://promo-2-ocwm.onrender.com', 
+      'https://promo-3.onrender.com'
+    ];
+
+    app.use(cors({
+      origin: function (origin, callback) {
+      
+        if (!origin) {
+          console.log("CORS: Request with no origin. Allowing.");
+          return callback(null, true);
+        }
+     
+        if (allowedOrigins.indexOf(origin) === -1) {
+          const msg = `CORS Error: The origin '${origin}' is not allowed by the application's CORS policy.`;
+          console.error(msg); 
+          return callback(new Error(msg), false);
+        }
+        console.log(`CORS: Allowing origin '${origin}'.`);
+        return callback(null, true);
+      },
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+      credentials: true, 
+      optionsSuccessStatus: 204
+    }));
 
 
 app.use(bodyParser.json());
@@ -841,3 +863,4 @@ server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
     console.log(`Socket.IO listening on port ${PORT}`);
 });
+
