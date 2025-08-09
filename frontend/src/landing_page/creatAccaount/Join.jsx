@@ -165,10 +165,11 @@ function Join() {
       setTimeout(() => {
         if (response.data.user.role === "business") {
           // Use navigate directly, no token in URL
-          navigate("https://promo-2-ocwm.onrender.com/dashboard");
+            window.location.href = "https://promo-2-ocwm.onrender.com/dashboard"
         } else {
           // Use navigate directly, no token in URL
-          navigate("/Proposals");
+        window.location.href = "https://promo-3.onrender.com/Proposals"
+          
         }
       }, 1500);
 
@@ -384,5 +385,6 @@ function Join() {
 }
 
 export default Join;
+
 
 
