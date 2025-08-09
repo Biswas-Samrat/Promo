@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import MessageModal from "../../components/MessageModal.jsx"; 
+import { useNavigate } from "react-router-dom"; // Keep this import
+import MessageModal from "../../components/MessageModal.jsx";
 
 function Join() {
   const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ function Join() {
   const [messageType, setMessageType] = useState(""); // 'success' or 'danger'
   const [showMessageModal, setShowMessageModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const nicheOptions = [
     "Gaming",
@@ -144,9 +144,8 @@ function Join() {
     }
 
     try {
-      
       const response = await axios.post(
-        "https://promo-ke7k.onrender.com/api/users/register", // Backend signup URL
+        "http://localhost:5000/api/users/register", // Backend signup URL
         data,
         {
           headers: { "Content-Type": "multipart/form-data" }, // Important for file uploads
@@ -159,22 +158,19 @@ function Join() {
       setShowMessageModal(true);
 
       // Store the JWT token
+      localStorage.setItem("token", response.data.token);
+      console.log("Registration successful! Token:", response.data.token);
 
-         localStorage.setItem("token", response.data.token);
-         console.log("Registration successful! Token:", response.data.token);
-
-      // Navigate based on role after a short delay for message visibility
+      // Navigate based on role using navigate from react-router-dom
       setTimeout(() => {
         if (response.data.user.role === "business") {
-         
-             const token = response.data.token;
-           window.location.href = `https://promo-2-ocwm.onrender.com/dashboard?token=${token}`;
-            
+          // Use navigate directly, no token in URL
+          navigate("/dashboard");
         } else {
-         const token = response.data.token;
-          window.location.href = `https://promo-3.onrender.com/Proposals?token=${token}`;
+          // Use navigate directly, no token in URL
+          navigate("/Proposals");
         }
-      }, 1500); 
+      }, 1500);
 
     } catch (err) {
       const errorMessage = err.response?.data?.message || "Registration failed. Please try again.";
